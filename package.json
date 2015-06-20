@@ -1,11 +1,15 @@
 {
   "name": "crossorigin.me",
   "description": "Proxy to access resources that lack the Access-Control-Allow-Origin * header",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": {
-    "name": "technoboy10",
-    "email": "npm@tekhne-blog.appspotmail.com"
+    "name": "ericdwhite"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ericdwhite/crossorigin.me"
+  },
+  "private": true,
   "license": "MIT",
   "dependencies": {
     "request": "^2.40.0"
@@ -13,8 +17,7 @@
   "keywords": [
     "cors",
     "proxy",
-    "server",
-    "heroku"
+    "server"
   ],
   "main": "index.js",
   "bin": {

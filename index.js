@@ -72,6 +72,12 @@ function handler(req, res) {
           //console.log(response.request.headers)
           //console.log(response.statusCode)
           res.statusCode = response.statusCode
+
+          // Copy response headers
+          for (var header in response.headers) {
+            var value = response.headers[header];
+            res.setHeader(header, value);
+          }
           res.write(body)
           res.end()
         })

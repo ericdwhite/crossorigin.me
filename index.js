@@ -65,12 +65,13 @@ function handler(req, res) {
         var forwardHeaders = req.headers
         delete forwardHeaders.origin
         delete forwardHeaders.host
-        //console.log(forwardHeaders)
 
-        var r = request(proxiedURL, {encoding: null, headers: forwardHeaders}, function(error, response, body) {
-          //console.log('Proxied headers:')
-          //console.log(response.request.headers)
-          //console.log(response.statusCode)
+        var r = request(proxiedURL, {/*encoding: null,*/method: req.method, headers: forwardHeaders}, function(error, response, body) {
+          if( error ) {
+            console.log("Error:")
+            console.log(error)
+            return
+          }
           res.statusCode = response.statusCode
 
           // Copy response headers
@@ -81,6 +82,8 @@ function handler(req, res) {
           res.write(body)
           res.end()
         })
+        //console.log("Request:")
+        //console.log(r)
       }
 
     } catch (e) {
